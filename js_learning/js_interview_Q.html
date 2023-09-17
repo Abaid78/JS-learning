@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Intervew Questions</title>
+    <link rel="stylesheet" href="prism.css" />
+  </head>
+  <body>
+    <div class="main language-html, language-js">
+      <div class="content">
+        <ol>
+          <li>
+            <h1>Swaping two Variables</h1>
+            <pre><code>let a=prompt("Enter a Value: ")
+let b=prompt("Enter b Value: ")
+console.log(`a is: ${a} and b is: ${b}`)
+let temp;
+temp=a;
+a=b;
+b=temp
+console.log(`After the swaping\nThe value a is: ${a}\nThe value b is: ${b}`)</code></pre>
+            <h2>Another way</h2>
+            <pre><code>let a = parseInt(prompt("Enter a Value: "));
+let b = parseInt(prompt("Enter b Value: "));
+console.log(`a is: ${a}\nb is: ${b}`);
+// a=5  and b=6
+a = a + b;  // 11
+b=a-b; // 11-6=5
+a=a-b; // 11-5=6
+
+console.log(
+  `After the swaping\nThe value a is: ${a}\nThe value b is: ${b}`
+);</code></pre>
+          </li>
+          <li>
+            <h1>Get a random number between a range</h1>
+            <p>Used a formula for getting a number between a range</p>
+            <p>Math.random()*(highestNumber-lowestNumber)+lowestNumber</p>
+            <pre><code>//Math.random() give floating number between 0 and 1
+let a=Math.random()*(10-1)+1;
+console.log(`Random value between 1 and 10 is: ${a}`)</code></pre>
+          </li>
+          <li>
+            <h1>Prime number program</h1>
+            <p>
+              A prime number is a positive integer that is only divisible by 1
+              and itself.for example,2,3,5,7,11
+            </p>
+            <pre><code>let number=prompt("Enter a number:");
+if(number==1){
+  console.log(`${number} is neither prime nor composite number`);
+}else if(number < 1){
+  console.log(`${number} is not a prime number`)
+}else{
+  for (var i=2;i < number;i++){
+    if(number%i==0){
+      var res=`${number} is not a prime number`;
+    }else{
+      var res=`${number} is a prime number`;
+    }
+    console.log(res)
+  }
+}</code></pre>
+          </li>
+          <li>
+            <h1>Find the Factorial</h1>
+            <p>
+              The factorial of a number is the product of all the numbers from q
+              to that number.for example,factorial of 5 is equal to
+              1*2*3*4*5=120
+            </p>
+            <pre><code>let num=prompt("Enter a Number:"); 
+console.log(typeof(num)) // typeof num is string but when num multiply other number, js automatic perform type conversion String to Number
+let fact=1;
+for(let i=1;i<=num;i++){
+    fact=fact*i;
+  }
+  console.log(`The factorial of ${num} is ${fact}`);</code></pre>
+          </li>
+          <li>
+            <h1>Find the Factorial using Recursion function</h1>
+            <pre><code>let num = prompt("Enter the number:");
+let fact = 1;
+function factorial(n=1) {
+  if (n > num) {
+    console.log(`The factorial of ${num} is ${fact}`);
+    return;
+  }
+  fact = fact * n;
+  n++;
+  factorial(n);
+}
+factorial();</code></pre>
+          </li>
+          <li>
+            <h1>Check the Numbers have same last Digit</h1>
+            <p>
+              Divide each number by 10,and check the remainders.If all the
+              remainders are same ,those numbers has the same last digit
+            </p>
+            <pre><code>let num1 = prompt("Enter the numbers:")
+let num2=prompt("Enter the numbers:")
+let num3=prompt("Enter the numbers:")
+let result1=num1%10;
+let result2=num2%10;
+let result3=num3%10;
+console.log(result1,result2,result3)
+if(result1==result2 && result1==result3){
+  console.log("Digit are same")
+}else{
+  console.log("digit  are not same")
+}</code></pre>
+          </li>
+          <li>
+            <h1>What is a Palindrome string?</h1>
+            <p>
+              A string is a <b>Palindrome</b> if it is read the same from
+              forward or backward. <br />
+              For example ,dad reads the same either from forward or backward
+              and word madam.
+            </p>
+            <pre><code>let string = "madam";
+let splitString = string.split("");
+let reverseString = splitString.reverse();
+if (string != reverseString) {
+  console.log(`${string}: is Palindrome`)
+}else{
+  console.log(`${string}: is not a Palindrome`)
+}</code></pre>
+          </li>
+          <li>
+            <h1>Check the Number of Occurrences of a Character in a string</h1>
+            <pre><code>let string="hellow";
+let findCh="l"
+let count=0;
+for(var i=0;i < string.length;i++){
+    if(string[i] == findCh){
+        count++;
+    }
+}
+console.log(count)</code></pre>
+          </li>
+          <li>
+            <h1>check a String start and ends with certain characters</h1>
+            <pre><code>let string="hellow";
+let start_char=string.startsWith('h');
+let end_char=string.endsWith('w');
+if(start_char==true && end_char==true){
+    console.log(`${string}: start with h and ends with e`)
+}
+</code></pre>
+          </li>
+          <li>
+            <h1>Check a string contains a substring</h1>
+            <p>
+              <b>String.incudes():</b> method checks if one string can be found
+              inside another string and returns true or false.
+            </p>
+          </li>
+          <pre><code>let string="This is the JavaScript Program";
+let substring="the"
+let index_of_substring=string.indexOf(substring);
+if(string.includes(substring)){
+    console.log(`Yes presend substring at index of ${index_of_substring}`);
+}</code></pre>
+          <li>
+            <h1>convert the first letter of a string in to UpperCase</h1>
+            <ul>
+              <li><b>charAt(): </b>To get a character at an index.</li>
+              <li><b>toUpperCase(): </b>to upper case characters.</li>
+              <li><b>slice(): </b>To slide any acaracter from the string</li>
+            </ul>
+            <pre><code>let string="hellow";
+let first_char=string.charAt(0).toUpperCase();
+let remember_string=string.slice(1);
+console.log(first_char+remember_string);</code></pre>
+          </li>
+          <li>
+            <b>Regex</b> is know as regular expression.It is used to match,test
+            and find character from a string.
+            <pre><code>var string="This is a JavaScript Programe";
+var reg=/[aeiou]/gi;
+var match_char=string.match(reg);
+console.log(match_char);
+console.log(match_char.length);
+console.log(match_char.join(','))</code></pre>
+          </li>
+          <li>
+            <h1>Find armstrong numbers between an interval</h1>
+            <p>In the case of a Armstrong number of 3 digits, the sum of cubes of each digit is equal to the nmber itself.for example,153 is an Armstrong number because <br> 153=1*1*1+5*5*5+3*3*3</p>
+            <pre><code>let start=1;
+let end=1000;
+for(var i=start;i<=end;i++){
+    var temp=i;
+    var noOfDigits=i.toString().length;
+    var sum=0;
+    while(temp>0){
+        var digit=temp%10;
+        temp=parseInt(temp/10);
+        sum+=digit**noOfDigits;
+
+    }
+    if(sum==i){
+        console.log(i)
+    }
+}e</code></pre>
+          </li>
+          <li>
+            <h1>find sum of natural numbers using recursion</h1>
+            <pre><code>let sumofNumbers=0;
+function sum(n){
+    if(n==0){
+        console.log(sumofNumbers)
+        return
+    }
+    sumofNumbers=sumofNumbers+n
+    n--;
+    sum(n);
+}
+sum(5);</code></pre>
+          </li>
+          <li>
+            <h1>What is a Fibonacci Series(Swquence)</h1>
+            <p>
+              In JavaScript, a Fibonacci series is a sequence of numbers where
+              each number is the sum of the previous two numbers, starting with
+              0 and 1. So, the series goes like this: 0, 1, 1, 2, 3, 5, 8, 13,
+              21, 34, 55, 89, 144, and so on.
+            </p>
+            <pre><code>let a=0,b=1;
+let fibonanci=10;
+for(let i=0;i<=fibonanci;i++){
+    let temp=a+b;
+    a=b;
+    b=temp
+    console.log(b)
+
+//second way
+function fibonacci(n) {
+  let sequence = [0, 1]; // Start with the first two numbers in the sequence
+
+  for (let i = 2; i <= n; i++) {
+    sequence[i] = sequence[i - 1] + sequence[i - 2]; // Calculate the next number in the sequence
+    console.log(sequence[i - 2] + " first", sequence[i - 1] + " second");
+  }
+
+  return sequence.slice(0, n); // Return the sequence up to the nth number
+}
+
+console.log(fibonacci(10)); // Outputs [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+}</code></pre>
+          </li>
+          <li>
+            <h1>Reverse a string using for loop</h1>
+            <pre><code>let string="Hello"
+console.log(string[5])//undefined there is not index in the string so used length-1 =4
+var revStr='';
+for(let i=string.length-1;i>=0;i--){
+    revStr+=string[i];
+}
+console.log(revStr)</code></pre>
+          </li>
+          <li>
+            <h1>Sort words in Alphabetical order</h1>
+            <p><b>split('')</b>to split the string into array. <b>sort():</b>to sort the array into alphabetical ascedning order.</p>
+            <pre><code>let string="Hello world string"
+string=string.split(' ')
+string=string.sort()
+string=string.join(' ')
+console.log(string)</code></pre>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <script src="prism.js"></script>
+  </body>
+</html>

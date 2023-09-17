@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="testing.js"></script>
+  </head>
+  <style>
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 40px;
+      text-align: center;
+      font: bold;
+
+      color: white;
+    }
+    .stack {
+      background-color: grey;
+      height: 50px;
+    }
+    .globally {
+      background-color: rgb(58, 12, 12);
+      animation: move 5s;
+      animation-delay: 2s;
+    }
+    .outer {
+      background-color: rgb(15, 52, 131);
+
+      animation: move 5s;
+      animation-delay: 4s;
+    }
+    .inner {
+      background-color: red;
+    }
+  </style>
+  <body>
+    <div class="inner">Inner function</div>
+    <div class="outer">Outer Function</div>
+    <div class="globally">Global Execuation context</div>
+    <div class="stack">Execuation Stack</div>
+    <script src="script.js"></script>
+    <script>
+    </script>
+  </body>
+</html>
